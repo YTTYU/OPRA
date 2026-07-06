@@ -63,20 +63,58 @@ a {
 }
 
 .brand-meta,
-.nav a {
+.nav a,
+.lang-toggle button {
   color: var(--muted);
   transition: color 180ms ease;
 }
 
 .brand-meta:hover,
-.nav a:hover {
+.nav a:hover,
+.lang-toggle button:hover,
+.lang-toggle button.is-active {
   color: var(--text);
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 2.6vw, 34px);
 }
 
 .nav {
   display: flex;
   align-items: center;
   gap: clamp(12px, 2vw, 28px);
+}
+
+.lang-toggle {
+  display: inline-grid;
+  grid-template-columns: repeat(2, 36px);
+  min-height: 28px;
+  border: 1px solid var(--line);
+  background: #050505;
+}
+
+.lang-toggle button {
+  border: 0;
+  border-right: 1px solid var(--line);
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+
+.lang-toggle button:last-child {
+  border-right: 0;
+}
+
+.lang-toggle button.is-active {
+  background: var(--panel-2);
+}
+
+.lang-toggle button:focus-visible {
+  outline: 1px solid var(--text);
+  outline-offset: -3px;
 }
 
 .frame-section {
@@ -733,10 +771,21 @@ body.has-video-modal {
     padding-bottom: 14px;
   }
 
+  .topbar-actions {
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+  }
+
   .nav {
     justify-content: flex-end;
     flex-wrap: wrap;
     gap: 10px 14px;
+  }
+
+  .lang-toggle {
+    grid-template-columns: repeat(2, 34px);
+    min-height: 26px;
   }
 
   .frame-section {
